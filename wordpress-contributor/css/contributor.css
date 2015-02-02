@@ -1,0 +1,8 @@
+.contributor_box {
+ 	clear:both;
+    padding: 2px;
+}
+.contributor_box span{
+	padding: 10px;
+	float:left;
+}
