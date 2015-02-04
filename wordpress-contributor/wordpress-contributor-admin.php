@@ -6,7 +6,19 @@ if ( is_admin() ) {
 	add_action( 'admin_init', 'post_contribuitor_metabox' );
 
 	function post_contribuitor_metabox(){
-		add_meta_box("contributors", "Contributors", "display_contributors_box","post","normal","high");
+
+		//argument to return only custom post types.
+		$arrArgs = array('_builtin' => false);
+
+		//get only custom post types
+		$arrAllCustomType = get_post_types($arrArgs);
+
+		//for post type post
+		array_push($arrAllCustomType,"post");
+		
+		foreach ($arrAllCustomType  as $strPostType) {
+			add_meta_box("contributors", "Contributors", "display_contributors_box",$strPostType,"normal","high");
+		}
 	}
 
 	/**

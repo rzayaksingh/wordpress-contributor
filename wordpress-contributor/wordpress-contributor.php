@@ -53,3 +53,13 @@ function load_contributor_header_files(){
 	wp_register_style("contributor-css", plugin_dir_url(__FILE__)."css/contributor.css");
 	wp_enqueue_style("contributor-css");
 }
+
+/**
+ * Register plugin uninstallation hook
+*/
+register_uninstall_hook( __FILE__, 'contributor_uninstall' );
+
+function contributor_uninstall() 
+{
+	delete_post_meta_by_key( 'contributor_count' );
+}

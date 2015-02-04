@@ -15,3 +15,10 @@
     margin: 2px;
     padding: 5px;
 }
+#contributor_metabox {
+	float:left;
+	width:100%;
+}
+#contributors .inside {
+	height: 30px;
+}
